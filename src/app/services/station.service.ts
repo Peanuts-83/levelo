@@ -6,28 +6,30 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable, OnDestroy, OnInit } from '@angular/core'
 import * as L from 'leaflet'
 import { Stations, StationsAvailable } from '../utils/interface/data_stations'
-import { Subscription } from 'rxjs'
+import { BehaviorSubject, Subscription } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
 })
 export class StationService implements OnDestroy {
-  private sub1: Subscription
-  private sub2: Subscription
-  private availableList: Available[]
+  private sub1$: Subscription
+  private sub2$: Subscription
   private mapType: string
   private markerParam = {
     radius: 0,
     fillcolor: '',
     color: '',
   }
+  stations$: BehaviorSubject<Station[]> = new BehaviorSubject([])
+  availableList: Available[]
   markerLayers: L.Layer[] = []
 
   makeStations(map: L.Map): void {
-    this.sub1 = this.http.get('https://transport.data.gouv.fr/gbfs/marseille/station_information.json').subscribe({
+    this.sub1$ = this.http.get('https://transport.data.gouv.fr/gbfs/marseille/station_information.json').subscribe({
       next: (res: Stations) => {
         const bikeNum = res.data.stations.map(x => x.capacity)
         const maxBikeNum = Math.max(...bikeNum)
+        this.stations$.next(res.data.stations)
 
 
         // Make marker
@@ -95,7 +97,7 @@ export class StationService implements OnDestroy {
     private avaibilityService: AvaibilityService,
     private mapTypeService: MapTypeService) {
     this.mapTypeService.mapType.subscribe(x => this.mapType = x)
-    this.sub2 = this.avaibilityService.makeAvailable()
+    this.sub2$ = this.avaibilityService.makeAvailable()
       .subscribe({
         next: (res: StationsAvailable) => this.availableList = res.data.stations,
         error: (err) => console.error(err),
@@ -104,8 +106,8 @@ export class StationService implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub1.unsubscribe()
-    this.sub2.unsubscribe()
+    this.sub1$.unsubscribe()
+    this.sub2$.unsubscribe()
   }
 
 }

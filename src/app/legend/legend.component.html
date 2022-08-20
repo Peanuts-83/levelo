@@ -1,10 +1,20 @@
 <div class="legend_container">
-  <em><mat-icon>directions_bike</mat-icon> Visualisez les stations par</em>
-  <div [formGroup]="form">
+  <em>
+    <mat-icon>directions_bike</mat-icon> Visualisez les stations par
+  </em>
+  <div class="form" [formGroup]="form" (submit)="targetStation()">
     <mat-radio-group formControlName="radio" class="col p-10" (change)="changeType($event)">
       <mat-radio-button color="primary" labelPosition="after" value="size">Nombre total de places </mat-radio-button>
       <mat-radio-button color="accent" labelPosition="after" value="docks">Nombre de places vides </mat-radio-button>
       <mat-radio-button color="warn" labelPosition="after" value="bikes">Nombre de vélos disponibles </mat-radio-button>
     </mat-radio-group>
+    <input mat-input formControlName="search" type="text" [matAutocomplete]="auto" placeholder="Recherchez une station">
+    <mat-autocomplete #auto (optionSelected)="targetStation($event.option.value)">
+      <mat-option *ngFor="let option of filteredNames " [value]="option">
+        {{ option}}
+      </mat-option>
+
+    </mat-autocomplete>
   </div>
+  <pre>{{form.value | json}}</pre>
 </div>

@@ -10,13 +10,13 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { LegendComponent } from './legend/legend.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    LegendComponent
+    LegendComponent,
   ],
   imports: [
     BrowserModule,
