@@ -1,3 +1,5 @@
+import { MapTypeService } from './../services/map-type.service'
+import { MapService } from './../services/map.service'
 import { StationService } from './../services/station.service'
 import { Component, AfterViewInit } from '@angular/core'
 import * as L from 'leaflet'
@@ -23,29 +25,24 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements AfterViewInit {
-  private map: any
-  private initMap(): void {
-    this.map = L.map('map', {
-      center: [43.2928, 5.4334],
-      zoom: 13
-    })
+  map: any
+  mapType: string
 
-    const tiles = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> | &copy; <a href="http://thomasranque.com/">Peanuts83</a>'
-    })
-
-    tiles.addTo(this.map)
-  }
-
-
-
-  constructor(private stationService: StationService) { }
+  constructor(
+    private stationService: StationService,
+    private mapService: MapService,
+    private mapTypeService: MapTypeService) { }
 
   ngAfterViewInit(): void {
-    this.initMap()
+    this.map = this.mapService.initMap()
     this.stationService.makeStations(this.map)
+    this.mapTypeService.mapType.subscribe(x => {
+      if (this.mapType !== x) {
+        this.mapType = x
+        this.stationService.delStations(this.map)
+        this.stationService.makeStations(this.map)
+      }
+    })
   }
 
 }

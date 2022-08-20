@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { MapTypeService } from './../services/map-type.service'
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-legend',
@@ -8,11 +9,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class LegendComponent implements OnInit {
   form: FormGroup
-  constructor(private formBuilder: FormBuilder) { }
+
+  changeType(e) {
+    this.mapTypeService.setMapType(e.value)
+  }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private mapTypeService: MapTypeService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      radio: ['total']
+      radio: ['size']
     })
   }
 
