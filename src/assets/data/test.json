@@ -1,0 +1,38 @@
+{
+  "data": {
+    "stations": [
+      {
+        "address": "MAZARGUES - ROND POINT DE MAZARGUES (OBELISQUE)",
+        "capacity": 21,
+        "lat": 43.250903869637334,
+        "lon": 5.403244616491982,
+        "name": "9087-MAZARGUES",
+        "station_id": "9087"
+      },
+      {
+        "address": "391 MICHELET - 391 BOULEVARD MICHELET",
+        "capacity": 19,
+        "lat": 43.25402727813068,
+        "lon": 5.401873594694653,
+        "name": "8149-391 MICHELET",
+        "station_id": "8149"
+      },
+      {
+        "address": "TEISSEIRE ROUBAUD - ANGLE RUE RAYMOND TEISSEIRE ET RUE MAGUY ROUBAUD",
+        "capacity": 10,
+        "lat": 43.27252367086013,
+        "lon": 5.399686062414487,
+        "name": "9207- TEISSEIRE - ROUBAUD",
+        "station_id": "9207"
+      },
+      {
+        "address": "ROME ITALIE BERLIOZ - FACE AU 10 RUE BERLIOZ",
+        "capacity": 15,
+        "lat": 43.28892000857008,
+        "lon": 5.383105742132375,
+        "name": "6254-ROME - BERLIOZ - ITALIE",
+        "station_id": "6254"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.legend_container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  // padding: 10px 20px;
+  border: 2px solid grey;
+  background-color: white;
+
+  em {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    background-color: grey;
+  }
+}
+
+mat-radio-button {
+  margin-bottom: 10px;
+}

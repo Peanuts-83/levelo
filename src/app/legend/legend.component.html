@@ -1,0 +1,10 @@
+<div class="legend_container">
+  <em><mat-icon>directions_bike</mat-icon> Visualisez les stations par</em>
+  <div [formGroup]="form">
+    <mat-radio-group formControlName="radio" class="col p-10">
+      <mat-radio-button color="primary" labelPosition="after" value="total">Nombre total de places </mat-radio-button>
+      <mat-radio-button color="accent" labelPosition="after" value="empty">Nombre de places vides </mat-radio-button>
+      <mat-radio-button color="warn" labelPosition="after" value="available">Nombre de vélos disponibles </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
