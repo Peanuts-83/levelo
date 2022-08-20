@@ -73,8 +73,6 @@ export class StationService implements OnDestroy {
         }
         // Add marker to map
         for (let layer of this.markerLayers) {
-          console.log(layer);
-
           layer.addTo(map)
         }
       },
