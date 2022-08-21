@@ -43,18 +43,18 @@ export class StationService implements OnDestroy {
             switch (this.mapType) {
               case 'docks':
                 this.markerParam.radius = a.num_docks_available / s.capacity
-                this.markerParam.fillcolor = '#FFC107'
-                this.markerParam.color = '#F57F17'
+                this.markerParam.fillcolor = '#D4E157'
+                this.markerParam.color = '#7CB342'
                 break
               case 'bikes':
                 this.markerParam.radius = a.num_bikes_available / s.capacity
-                this.markerParam.fillcolor = '#EF6C00'
-                this.markerParam.color = '#E65100'
+                this.markerParam.fillcolor = '#FFC107'
+                this.markerParam.color = '#F57F17'
                 break
               default:
                 this.markerParam.radius = s.capacity / maxBikeNum
-                this.markerParam.fillcolor = '#D4E157'
-                this.markerParam.color = '#7CB342'
+                this.markerParam.fillcolor = '#20398a'
+                this.markerParam.color = '#2a4fc8'
                 break
             }
           }
@@ -66,7 +66,7 @@ export class StationService implements OnDestroy {
             radius: 20 * this.markerParam.radius,
             fillColor: this.markerParam.fillcolor,
             color: this.markerParam.color,
-            fillOpacity: .5,
+            fillOpacity: .3,
           })
 
           // Make popup
