@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatRadioModule } from '@angular/material/radio'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatButtonModule } from '@angular/material/button'
 
 const MATERIALS = [
   MatIconModule,
@@ -11,6 +12,7 @@ const MATERIALS = [
   MatInputModule,
   MatRadioModule,
   MatAutocompleteModule,
+  MatButtonModule,
 ]
 
 @NgModule({

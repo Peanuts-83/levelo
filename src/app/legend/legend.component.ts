@@ -1,24 +1,28 @@
 import { MapTypeService } from './../services/map-type.service'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { StationService } from '../services/station.service'
 import { Station } from '../utils/interface/data_stations'
-import { Observable, startWith, Subscription } from 'rxjs'
-import {pairwise} from 'rxjs/operators'
+import { Subscription } from 'rxjs'
+import { MatRadioChange } from '@angular/material/radio'
 
 @Component({
   selector: 'app-legend',
   templateUrl: './legend.component.html',
   styleUrls: ['./legend.component.scss']
 })
-export class LegendComponent implements OnInit {
-  form: FormGroup
+export class LegendComponent implements OnInit, OnDestroy {
+  searchForm: FormGroup
   private stations: Station[]
   private namesList: string[] = []
   filteredNames: string[] = []
   private oldSearch = ''
-  search
-  searchSubscription: Subscription
+  search: string = '-'
+  private searchSubscription: Subscription
+
+  changeType(e: MatRadioChange) {
+    this.mapTypeService.setMapType(e.value)
+  }
 
   makeNamesList() {
     if (this.stations) {
@@ -34,7 +38,6 @@ export class LegendComponent implements OnInit {
   }
 
   updateNamesList(e: string) {
-    // console.log(e)
     if (e.length < this.oldSearch.length) {
       this.filteredNames = this.namesList.filter(name => name.includes(e.toLowerCase()))
     }
@@ -44,22 +47,36 @@ export class LegendComponent implements OnInit {
     this.oldSearch = e
   }
 
-  targetStation(e?, args?) {
-    let searchName: string
-    if (e) {
-      searchName = e.trim().toLowerCase()
+  targetStation() {
+    let searchName: string = this.search.trim().toLowerCase().replace(/\s\s/g, ' ')
+    const result = this.stations.filter(station => {
+      let counter = 0
+      for (let word of searchName.split(' ')) {
+        if (station.name.toLowerCase().includes(word)) {
+          counter++
+        }
+      }
+      if (counter === searchName.split(' ').length) {
+        return station
+      }
+      return null
+    })
+
+    if (result.length < 1) {
+      this.alertResult()
     } else {
-      // this.search.subscribe(x => searchName = x.trim().toLowerCase() )
+      this.zoomResult(result[0])
     }
-    console.log('TARGET name:', searchName, this.stations)
-    const result = this.stations.filter(station => station.name.toLowerCase().includes(searchName))[0]
-    console.log('TARGET coords: ', result.lon, result.lat)
-
   }
 
-  changeType(e) {
-    this.mapTypeService.setMapType(e.value)
+  alertResult() {
+    console.log('No Result');
   }
+
+  zoomResult(targetStation: Station) {
+    console.log(targetStation);
+  }
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -72,12 +89,12 @@ export class LegendComponent implements OnInit {
       this.makeNamesList()
     })
 
-    this.form = this.formBuilder.group({
+    this.searchForm = this.formBuilder.group({
       radio: ['size'],
       search: ['']
     })
 
-    this.searchSubscription = this.form.get('search')
+    this.searchSubscription = this.searchForm.get('search')
       .valueChanges
       .subscribe({
         next: x => {
@@ -89,4 +106,7 @@ export class LegendComponent implements OnInit {
       })
   }
 
+  ngOnDestroy(): void {
+    this.searchSubscription.unsubscribe()
+  }
 }

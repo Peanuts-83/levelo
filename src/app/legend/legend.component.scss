@@ -23,7 +23,15 @@ mat-radio-button {
   margin-bottom: 10px;
 }
 
-input {
+.search_container {
+  display: flex;
   width: 100%;
-  padding: 5px;
+  input {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .btn_go {
+    margin-left: 10px;
+  }
 }
