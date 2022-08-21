@@ -22,7 +22,7 @@ export class StationService implements OnDestroy {
   }
   stations$: BehaviorSubject<Station[]> = new BehaviorSubject([])
   availableList: Available[]
-  markerLayers: L.Layer[] = []
+  markerLayers: L.CircleMarker[] = []
 
   makeStations(map: L.Map): void {
     this.sub1$ = this.http.get('https://transport.data.gouv.fr/gbfs/marseille/station_information.json').subscribe({
@@ -66,7 +66,7 @@ export class StationService implements OnDestroy {
             radius: 20 * this.markerParam.radius,
             fillColor: this.markerParam.fillcolor,
             color: this.markerParam.color,
-            fillOpacity: .5
+            fillOpacity: .5,
           })
 
           // Make popup

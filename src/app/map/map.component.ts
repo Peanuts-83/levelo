@@ -1,7 +1,7 @@
 import { MapTypeService } from './../services/map-type.service'
 import { MapService } from './../services/map.service'
 import { StationService } from './../services/station.service'
-import { Component, AfterViewInit } from '@angular/core'
+import { Component, AfterViewInit, ViewChild } from '@angular/core'
 import * as L from 'leaflet'
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -25,7 +25,7 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements AfterViewInit {
-  map: any
+  map: L.Map
   mapType: string
 
   constructor(
@@ -34,7 +34,7 @@ export class MapComponent implements AfterViewInit {
     private mapTypeService: MapTypeService) { }
 
   ngAfterViewInit(): void {
-    this.map = this.mapService.initMap()
+    this.map = this.mapService.initMap([43.2928, 5.4334], 13)
     this.stationService.makeStations(this.map)
     this.mapTypeService.mapType.subscribe(x => {
       if (this.mapType !== x) {
@@ -43,6 +43,12 @@ export class MapComponent implements AfterViewInit {
         this.stationService.makeStations(this.map)
       }
     })
+  }
+
+  zoom = (marker: L.CircleMarker): void => {
+    marker.openPopup()
+    this.map.zoomIn(15)
+    this.map.panTo(marker.getLatLng())
   }
 
 }

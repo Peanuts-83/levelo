@@ -1,10 +1,11 @@
 import { MapTypeService } from './../services/map-type.service'
-import { Component, OnInit, OnDestroy } from '@angular/core'
+import { Component, OnInit, OnDestroy, Input, ViewChild, ElementRef } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { StationService } from '../services/station.service'
 import { Station } from '../utils/interface/data_stations'
 import { Subscription } from 'rxjs'
 import { MatRadioChange } from '@angular/material/radio'
+import * as L from 'leaflet'
 
 @Component({
   selector: 'app-legend',
@@ -12,6 +13,10 @@ import { MatRadioChange } from '@angular/material/radio'
   styleUrls: ['./legend.component.scss']
 })
 export class LegendComponent implements OnInit, OnDestroy {
+  @Input() zoom: (marker: L.CircleMarker) => void
+  @ViewChild('error') error: ElementRef<HTMLElement>
+  @ViewChild('input') input: ElementRef<HTMLInputElement>
+
   searchForm: FormGroup
   private stations: Station[]
   private namesList: string[] = []
@@ -26,7 +31,7 @@ export class LegendComponent implements OnInit, OnDestroy {
 
   makeNamesList() {
     if (this.stations) {
-      console.log('STATIONS', this.stations.map(station => station.name))
+      // console.log('STATIONS', this.stations.map(station => station.name))
       this.namesList = this.stations.map(station => {
         return station.name
           .toLowerCase()
@@ -63,18 +68,22 @@ export class LegendComponent implements OnInit, OnDestroy {
     })
 
     if (result.length < 1) {
-      this.alertResult()
+      this.alertResult(true)
     } else {
       this.zoomResult(result[0])
     }
   }
 
-  alertResult() {
-    console.log('No Result');
+  alertResult(val: boolean) {
+    console.log('ERROR', this.error.nativeElement.style.opacity)
+    this.error.nativeElement.style.opacity = val ? '1' : '0'
+    this.input.nativeElement.style.border = val ? '1px solid red' : '1px solid black'
   }
 
   zoomResult(targetStation: Station) {
-    console.log(targetStation);
+    this.alertResult(false)
+    const markerTarget = this.stationService.markerLayers.filter((marker: L.CircleMarker) => marker.getLatLng().lat === targetStation.lat && marker.getLatLng().lng === targetStation.lon)
+    this.zoom(markerTarget[0])
   }
 
 
@@ -98,7 +107,7 @@ export class LegendComponent implements OnInit, OnDestroy {
       .valueChanges
       .subscribe({
         next: x => {
-          console.log('Value:', x)
+          // console.log('Value:', x)
           this.search = x
           this.updateNamesList(this.search)
         },

@@ -9,7 +9,7 @@
       <mat-radio-button color="warn" labelPosition="after" value="bikes">Nombre de vélos disponibles </mat-radio-button>
     </mat-radio-group>
     <div class="search_container">
-      <input mat-input formControlName="search" type="text" [matAutocomplete]="auto" placeholder="Recherchez une station">
+      <input #input mat-input formControlName="search" type="text" [matAutocomplete]="auto" placeholder="Recherchez une station">
       <mat-autocomplete #auto (optionSelected)="targetStation()">
         <mat-option *ngFor="let option of filteredNames " [value]="option">
           {{ option}}
@@ -17,7 +17,8 @@
       </mat-autocomplete>
       <button mat-raised-button color="primary" title="search" class="btn_go" type="submit">Go !</button>
     </div>
+    <p class="error" #error>Station inconnue</p>
   </form>
-  <pre>{{searchForm.value | json}}</pre>
-  <pre>{{search}}</pre>
+  <!-- <pre>{{searchForm.value | json}}</pre>
+  <pre>{{search}}</pre> -->
 </div>

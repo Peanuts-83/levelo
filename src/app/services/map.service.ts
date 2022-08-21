@@ -5,12 +5,12 @@ import * as L from 'leaflet'
   providedIn: 'root'
 })
 export class MapService {
-  map: any
-  
-  initMap(): void {
+  map: L.Map
+
+  initMap(coords: L.LatLngExpression, zoom: number): L.Map {
     this.map = L.map('map', {
-      center: [43.2928, 5.4334],
-      zoom: 13
+      center: coords,
+      zoom: zoom
     })
 
     const tiles = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
