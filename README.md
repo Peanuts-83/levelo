@@ -1,27 +1,29 @@
-# Levelo
+[![Leaflet](./openstreetmap-leaflet.svg)](https://leafletjs.com/)
+[![Angular](./angular-14.1.0.svg)](https://angular.io)
+# Levélo - Marseille
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+New "levelo" website for learning purpose only. This site intends to give the customers access to Marseille self-service bicycle.
+You can view the original website here: [http://www.levelo-mpm.fr/](http://www.levelo-mpm.fr/).
 
-## Development server
+## Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Git clone this repo, npm install and then ng serve. Plays localy on [localhost:4200](http://localhost:4200).
 
-## Code scaffolding
+Make build with "ng build" command.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## OpenStreetMap / Leaflet
 
-## Build
+You can check branch "v1" to see initial research functionalities for Angular OpenStreetMap integration with Leaflet library.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* CircleMarkers positionning from state API : [https://transport.data.gouv.fr/gbfs/marseille/station_information.json](https://transport.data.gouv.fr/gbfs/marseille/station_information.json)
 
-## Running unit tests
+* Popup feeding from the same API
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Search function for stations name, with auto-pan / auto-zoom / auto-popup on requested station.
 
-## Running end-to-end tests
+## UI/UX design
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The "main" branch integrates UI/UX re-designing of original awfull website. It's only a basic suggestion of what it could be, not all functionalities are implemented...
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+All rights reserved © [Thomas Ranque - aka 'Peanuts83'](mailto:tranque@free.fr)
