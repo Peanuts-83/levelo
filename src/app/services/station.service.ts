@@ -53,8 +53,8 @@ export class StationService implements OnDestroy {
                 break
               default:
                 this.markerParam.radius = s.capacity / maxBikeNum
-                this.markerParam.fillcolor = '#0f2268'
-                this.markerParam.color = '#2c418c'
+                this.markerParam.fillcolor = '#1E88E5'
+                this.markerParam.color = '#1565C0'
                 break
             }
           }

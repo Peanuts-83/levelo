@@ -21,3 +21,18 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    .img_container {
+      margin-right: 40px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
