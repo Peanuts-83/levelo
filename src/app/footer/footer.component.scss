@@ -39,3 +39,26 @@
     color: $warn;
   }
 }
+
+@media screen and (max-width: 1024px) {
+
+
+}
+
+@media screen and (max-width: 768px) {
+  .footer_top {
+    flex-direction: column;
+    align-items: center;
+    font-size: 21px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer_top {
+    padding: 50px;
+  }
+  .footer_bottom {
+    padding: 20px;
+    font-size: 14px;
+  }
+}

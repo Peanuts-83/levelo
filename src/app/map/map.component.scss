@@ -18,14 +18,20 @@
 
 #map {
   height: 100%;
+
+  .leaflet-bar {
+    background-color: $greyDark;
+  }
+
+  .leaflet-control-attribution {
+    margin: 20px !important;
+  }
 }
 
-.leaflet-bar a {
-  background-color: $greyDark;
-}
 
 @media screen and (max-width: 1024px) {
   .map-container {
+    height: calc(100vh - 550px);
 
     .legend {
       margin: 10px 40px;
@@ -36,6 +42,7 @@
 
 @media screen and (max-width: 768px) {
   .map-container {
+    height: calc(100vh - 450px);
 
     .legend {
       margin: 10px 20px;
@@ -45,5 +52,12 @@
 }
 
 @media screen and (max-width: 500px) {
+  .map-container {
+    height: calc(100vh - 250px);
 
+    .legend {
+      bottom: 90px;
+      margin: 0;
+    }
+  }
 }

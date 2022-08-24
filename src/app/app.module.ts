@@ -8,12 +8,16 @@ import { StationService } from './services/station.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
-import { LegendComponent } from './legend/legend.component';
+import { LegendComponent } from './map/legend/legend.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { PubComponent } from './pub/pub.component';
+import { PubComponent } from './map/pub/pub.component';
+import { CommentComponent } from './comment/comment.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { MagazineComponent } from './magazine/magazine.component';
+import { SecuriteComponent } from './securite/securite.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { PubComponent } from './pub/pub.component';
     HeaderComponent,
     FooterComponent,
     PubComponent,
+    CommentComponent,
+    TicketsComponent,
+    MagazineComponent,
+    SecuriteComponent,
   ],
   imports: [
     BrowserModule,
