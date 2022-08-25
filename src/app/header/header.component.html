@@ -17,8 +17,10 @@
     </div>
     <nav>
       <div class="menu">
-        <div class="burger">X</div>
-        <ul>
+        <div class="burger">
+          <mat-icon (mouseover)="displayMenu(true)">menu</mat-icon>
+        </div>
+        <ul #menu (mouseleave)="displayMenu(false)">
           <li>Comment ça marche</li>
           <li>Abonnement & tickets</li>
           <li class="active">Les stations</li>
