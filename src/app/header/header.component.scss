@@ -95,16 +95,17 @@ nav {
         padding: 10px 0;
         cursor: pointer;
 
-        &:hover {
+        a:hover {
+          color: $warn;
+          text-decoration: overline;
+        }
+
+        .active {
           color: $warn;
           text-decoration: overline;
         }
       }
 
-      .active {
-        color: $warn;
-        text-decoration: overline;
-      }
     }
   }
 

@@ -21,11 +21,11 @@
           <mat-icon (mouseover)="displayMenu(true)">menu</mat-icon>
         </div>
         <ul #menu (mouseleave)="displayMenu(false)">
-          <li>Comment ça marche</li>
-          <li>Abonnement & tickets</li>
-          <li class="active">Les stations</li>
-          <li>Magazine</li>
-          <li>Pour votre sécurité</li>
+          <li><a routerLink="/comment_ça_marche" routerLinkActive="active">Comment ça marche</a></li>
+          <li><a routerLink="/tickets" routerLinkActive="active">Abonnement & tickets</a></li>
+          <li><a routerLink="/map" routerLinkActive="active">Les stations</a></li>
+          <li><a routerLink="/magazine" routerLinkActive="active">Magazine</a></li>
+          <li><a routerLink="/securite" routerLinkActive="active">Pour votre sécurité</a></li>
         </ul>
       </div>
       <div class="lang_search">
