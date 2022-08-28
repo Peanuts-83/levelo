@@ -1,1 +1,13 @@
-<p>comment works!</p>
+<div class="page">
+  <ul class="sub_nav">
+    <li><a routerLink="stations" routerLinkActive="active">Les stations</a></li>
+    <li><a routerLink="velos" routerLinkActive="active">Les vélos</a></li>
+    <li><a routerLink="utiliser" routerLinkActive="active">Utiliser les vélos</a></li>
+    <li><a routerLink="faq" routerLinkActive="active">FAQ</a></li>
+  </ul>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

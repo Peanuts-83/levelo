@@ -1,0 +1,48 @@
+{
+  "cards": {
+    "comment_ca_marche": {
+      "stations": {
+        "title": "Les stations",
+        "text": "Avec une station tous les 300 mètres environ, il y a toujours une station à proximité.",
+        "content": [
+          {
+            "img": "",
+            "title": "La borne principale",
+            "text": "<p>Grâce à cette borne, vous pouvez effectuer une multitude d’opérations :</p><ul><li>louer un vélo</li><li>acheter un ticket hebdomadaire </li><li> vous informer sur le mode d’emploi et les informations sur le service </li><li> consulter sur un plan les stations à proximité </li><li> recharger votre compte avec votre carte bancaire.</li></ul><p> Avec leur écran tactile, il est très facile de se laisser guider et de sélectionner ses choix.</p>"
+          },
+          {
+            "img": "",
+            "title": "Le point d'attache",
+            "text": "<p>Dans chaque station levélo, vous trouverez entre 10 et 20 points d'attache. Leur nombre dépend de l’environnement et de la fréquentation du lieu où ils sont implantés.</p><p>Le point d'attache verrouille ou déverrouille les vélos. Un voyant lumineux vous indique si vous avez bien restitué le vélo.</p>"
+          },
+          {
+            "img": "",
+            "title": "Présentation des stations",
+            "text": "<p>Elles sont constituées d’une borne principale et de bornes d’accrochage pour verrouiller ou déverrouiller les vélos. Vous pouvez prendre un vélo dans une station et le déposer dans une autre. le service vous permet de retirer et de restituer un vélo en toute liberté, 7 jours sur 7, 24h/24.</p><p>Consulter le plan des stations</p><p>Guide des abonnés Pass Intégral permanent</p><p>Guide des abonnés Marseille Pass</p>"
+          }
+        ]
+      },
+      "velos": {
+        "title": "Les vélos",
+        "text": "Tout pour bien utiliser son vélo.",
+        "content": [
+          {
+            "img": "",
+            "title": "Présentation des vélos",
+            "text": "<p>Le confort et la sécurité des usagers sont des préoccupations qui ne nous ont pas quitté lors de la conception de ces vélos.</p><p>Aujourd’hui, nous vous fournissons une sécurité maximale et un confort optimal sur chaque vélo.</p>"
+          },
+          {
+            "img": "",
+            "title": "Sécurité",
+            "text": "<ul><li>Eclairage des feux dès le début de l’utilisation et pendant 120 secondes après l’arrêt du vélo.</li><li>Bandes réfléchissantes sur les roues</li><li>Freins avant et arrière intégrés dans les moyeux des roues.</li></ul>"
+          },
+          {
+            "img": "",
+            "title": "Confort",
+            "text": "<ul><li>Vélo mixte (femme et homme)</li><li>Changement de vitesse simple et rapide, même à l'arrêt</li><li>Selle réglable en hauteur à l'aide d'une crémaillère</li><li>Panier avant de grande capacité</li></ul>"
+          }
+        ]
+      }
+    }
+  }
+}

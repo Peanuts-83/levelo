@@ -38,7 +38,7 @@ mat-icon {
   display: grid;
   grid-template-rows: 500px 1fr auto;
   width: 100%;
-  max-height: 100vh;
+  // max-height: 100vh;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
@@ -46,13 +46,23 @@ mat-icon {
   background-color: grey;
 }
 
-// .row {
-//   display: flex;
-//   flex-direction: row;
-// }
+.page {
+  display: flex;
+  margin: 20px 50px ;
 
-// .col {
-// }
+  .sub_nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    width: 30%;
+    font-size: 18px;
+    line-height: 2;
+  }
+  .content {
+
+  }
+}
 
 .p-10 {
   padding: 10px;
@@ -61,10 +71,13 @@ mat-icon {
 a {
   color: white;
   text-decoration: none;
+
   &:visited {
     color: white;
   }
-  &:active, &:hover {
+
+  &:active,
+  &:hover {
     text-decoration: underline;
   }
 

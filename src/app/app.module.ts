@@ -18,6 +18,15 @@ import { CommentComponent } from './comment/comment.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { MagazineComponent } from './magazine/magazine.component';
 import { SecuriteComponent } from './securite/securite.component';
+import { StationsComponent } from './comment/stations/stations.component';
+import { VelosComponent } from './comment/velos/velos.component';
+import { UtiliserComponent } from './comment/utiliser/utiliser.component';
+import { FaqComponent } from './comment/faq/faq.component';
+import { AbonnementComponent } from './tickets/abonnement/abonnement.component';
+import { TicketComponent } from './tickets/ticket/ticket.component';
+import { TarifsComponent } from './tickets/tarifs/tarifs.component';
+import { ProComponent } from './tickets/pro/pro.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +40,15 @@ import { SecuriteComponent } from './securite/securite.component';
     TicketsComponent,
     MagazineComponent,
     SecuriteComponent,
+    StationsComponent,
+    VelosComponent,
+    UtiliserComponent,
+    FaqComponent,
+    AbonnementComponent,
+    TicketComponent,
+    TarifsComponent,
+    ProComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

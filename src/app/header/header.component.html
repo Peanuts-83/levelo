@@ -5,7 +5,7 @@
   <div class="container_logo_nav">
     <div class="logo">
       <div class="velo">
-        <a href="./">
+        <a routerLink="/map">
           le<span>vélo</span>
         </a>
       </div>
@@ -21,7 +21,7 @@
           <mat-icon (mouseover)="displayMenu(true)">menu</mat-icon>
         </div>
         <ul #menu (mouseleave)="displayMenu(false)">
-          <li><a routerLink="/comment_ça_marche" routerLinkActive="active">Comment ça marche</a></li>
+          <li><a routerLink="/comment_ca_marche" routerLinkActive="active">Comment ça marche</a></li>
           <li><a routerLink="/tickets" routerLinkActive="active">Abonnement & tickets</a></li>
           <li><a routerLink="/map" routerLinkActive="active">Les stations</a></li>
           <li><a routerLink="/magazine" routerLinkActive="active">Magazine</a></li>

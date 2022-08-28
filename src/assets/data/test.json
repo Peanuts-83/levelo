@@ -1,5 +1,5 @@
 {
-  "data": {
+  "cards": {
     "stations": [
       {
         "address": "MAZARGUES - ROND POINT DE MAZARGUES (OBELISQUE)",
@@ -33,6 +33,6 @@
         "name": "6254-ROME - BERLIOZ - ITALIE",
         "station_id": "6254"
       }
-    }
+    ]
   }
 }
