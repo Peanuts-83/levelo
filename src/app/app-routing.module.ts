@@ -7,7 +7,7 @@ import { PageComponent } from './page/page.component'
 
 const routes: Routes = [
   {path: '', component: MapComponent},
-  {path: 'comment_ça_marche', component: PageComponent},
+  {path: 'comment_ca_marche', component: PageComponent},
   {path: 'tickets', component: PageComponent},
   {path: 'magazine', component: PageComponent},
   {path: 'securite', component: PageComponent},

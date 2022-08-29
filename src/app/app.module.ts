@@ -14,8 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PubComponent } from './map/pub/pub.component';
-import { CardComponent } from './card/card.component';
+import { CardComponent } from './page/card/card.component';
 import { PageComponent } from './page/page.component';
+import { SubnavComponent } from './page/subnav/subnav.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PageComponent } from './page/page.component';
     PubComponent,
     CardComponent,
     PageComponent,
+    SubnavComponent,
   ],
   imports: [
     BrowserModule,

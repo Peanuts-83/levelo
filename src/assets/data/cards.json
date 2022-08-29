@@ -1,5 +1,5 @@
 {
-  "cards": {
+  "sections": {
     "comment_ca_marche": {
       "stations": {
         "title": "Les stations",
@@ -40,6 +40,169 @@
             "img": "",
             "title": "Confort",
             "text": "<ul><li>Vélo mixte (femme et homme)</li><li>Changement de vitesse simple et rapide, même à l'arrêt</li><li>Selle réglable en hauteur à l'aide d'une crémaillère</li><li>Panier avant de grande capacité</li></ul>"
+          }
+        ]
+      },
+      "utiliser": {
+        "title": "Utiliser les vélos",
+        "text": "",
+        "content": [
+          {
+            "img": "",
+            "title": "Prendre un vélo",
+            "text": "<ul><li>Passez votre carte d’abonné sur le lecteur de carte de la borne principale ou glissez votre ticket 7 jours dans la fente prévue à cet effet.</li><li>Identifiez-vous en composant votre code personnel sur l’écran tactile</li><li>Accédez au menu « Retirer un vélo »</li><li>Sélectionnez votre vélo</li><li>Dirigez-vous vers votre vélo puis déverrouillez-le</li></ul><p>Bonne route !</p>"
+          },
+          {
+            "img": "",
+            "title": "Restituer un vélo",
+            "text": "<ul><li> Enclenchez le vélo sur un point d'attache</li><li>Vérifiez que le témoin lumineux et un signal sonore (double bip) confirment que le système a bien pris en compte la fin de votre trajet.</li><li>Si c’est le cas, vous avez bien restitué le vélo. Dans le cas contraire, essayez à nouveau d’enclencher le vélo dans le point d'attache.</li></ul><p>Attention : Si votre vélo n'est pas bien restitué, votre responsabilité sera engagée. En cas de problème, vous pouvez appeler notre centre d’appel au 01 30 79 29 13 du lundi au vendredi de 8h à 20h et du samedi au dimanche de 9h à 19h.</p>"
+          }
+        ]
+      },
+      "faq": {
+        "title": "FAQ",
+        "text": "Téléchargez les Conditions Générales d'Accès et d'Utilisation du service levélo",
+        "content": [
+          {
+            "img": "",
+            "title": "Ticket 7 jours",
+            "text": "<p>Pour en savoir plus sur le ticket 7 jours.</p> <ul><li><a href='#'>Quelle est la durée de validité du ticket de courte durée ? </a></li><li><a href='#'>Quels types de cartes bancaires étrangères sont acceptés par le système ? </a></li><li><a href='#'>A-t-on droit à 30 mn gratuites une seule fois ou à chaque trajet ? </a></li> </ul>"
+          },
+          {
+            "img": "",
+            "title": "Service et Utilisation",
+            "text": "<p>Vous vous posez des questions sur le service, vous voulez savoir à qui s'adresser en cas de problème.</p> <ul><li><a href='#'>Quelle est la durée de validité du ticket de courte durée ? </a></li><li><a href='#'>Quels types de cartes bancaires étrangères sont acceptés par le système ? </a></li><li><a href='#'>A-t-on droit à 30 mn gratuites une seule fois ou à chaque trajet ? </a></li> </ul>"
+          },
+          {
+            "img": "",
+            "title": "Abonnement annuel et réabonnement",
+            "text": "<p>Pour en savoir plus sur le système d’abonnement annuel en ligne et ses avantages, consultez la foire aux questions.</p> <ul><li><a href='#'>Quelle est la durée de validité du ticket de courte durée ? </a></li><li><a href='#'>Quels types de cartes bancaires étrangères sont acceptés par le système ? </a></li><li><a href='#'>A-t-on droit à 30 mn gratuites une seule fois ou à chaque trajet ? </a></li> </ul>"
+          }
+        ]
+      }
+    },
+    "tickets": {
+      "abonnement": {
+        "title": "Abonnement annuel",
+        "text": "Si vous souhaitez utiliser levélo pendant 1 an en toute liberté, c’est l’abonnement qu’il vous faut !<br>Profitez de l’abonnement immédiat, 100% en ligne en choisissant votre carte Transpass comme support d’abonnement et la carte bancaire pour le paiement. Avec votre carte Transpass, l’abonnement annuel est immédiat !",
+        "content": [
+          {
+            "img": "",
+            "title": "Abonnement annuel",
+            "text": "Pour 5€ vous avez droit à un nombre illimité de trajets avec levélo pendant un an (12 mois consécutifs)."
+          }
+        ]
+      },
+      "ticket": {
+        "title": "Ticket 1 à 7 jours",
+        "text": "Si vous souhaitez découvrir levélo sans vous engager ou utiliser levélo ponctuellement, vous pouvez choisir le ticket 1 à 7 jours.",
+        "content": [
+          {
+            "img": "",
+            "title": "Ticket 1 à 7 jours",
+            "text": "Pour 1€, bénéficiez d’un nombre illimité de trajets pendant 7 jours consécutifs."
+          }
+        ]
+      },
+      "tarifs": {
+        "title": "Tarifs",
+        "text": "Découvrez les tarifs d’abonnement annuel à levélo et du ticket courte durée 7 jours. Avec la carte Transpass, l’abonnement annuel est immédiat, profitez-en dès maintenant !",
+        "content": [
+          {
+            "img": "",
+            "title": "Consultez les tarifs",
+            "text": "Comparez les prix et choisissez la formule qui vous convient."
+          }
+        ]
+      },
+      "pro": {
+        "title": "Offre Pro",
+        "text": "L'offre levélo sur mesure pour les déplacements professionnels.",
+        "content": [
+          {
+            "img": "",
+            "title": "L'offre professionnelle",
+            "text": "<p>Cette offre est exclusivement destinée aux entreprises, collectivités, associations et institutions de Marseille, qui souhaitent promouvoir l’utilisation de levélo auprès de leurs collaborateurs dans cadre d’un Plan de Déplacements Entreprises (PDE).</p>"
+          }
+        ]
+      }
+    },
+    "magazine": {
+      "actualites": {
+        "title": "Actualités",
+        "text": "Découvrez toutes les actualités sur votre système de vélos en libre-service \"le vélo\".",
+        "content": [
+          {
+            "img": "",
+            "title": "Pics de pollution : le ticket levélo 1 à 7 jours est gratuit à partir de ce vendredi 15 juillet et ce, jusqu'à nouvel ordre ! - Terminé",
+            "text": "<p>Les conditions météorologiques sont propices aux pics de pollution. Vous êtes appelés à laisser votre véhicule au garage pour utiliser un mode de déplacement non polluant. La Métropole met ainsi en place la gratuité du ticket 1 à 7 jours levélo aujourd'hui, vendredi 15 juillet.</p>"
+          },{
+            "img": "",
+            "title": "Info Service : levélo vous informe ! ",
+            "text": "<p>Retrouvez votre station n°8 065 - Palm Beach début 2023</p>"
+          },{
+            "img": "",
+            "title": "levélo vous souhaite un bel été ! ",
+            "text": "<p>À l’occasion du retour des beaux jours, venez profiter des abonnements courte durée pour seulement 1€.</p>"
+          },{
+            "img": "",
+            "title": "Au ciné ou à vélo, cet été prenez l'air ",
+            "text": "<p>27ème édition de Ciné Plein-Air Marseille</p>"
+          },{
+            "img": "",
+            "title": "Pics de pollution : le ticket levélo 1 à 7 jours est gratuit du 16 juin au 17 juin inclus",
+            "text": "<p>Les conditions météorologiques sont propices aux pics de pollution. Vous êtes appelés à laisser votre véhicule au garage pour utiliser un mode de déplacement non polluant. La Métropole met ainsi en place la gratuité du ticket 1 à 7 jours levélo du 16 juin au 17 juin inclus. </p>"
+          }
+        ]
+      },
+      "archives": {
+        "title": "Archives",
+        "text": "",
+        "content": [
+          {
+            "img": "",
+            "title": "Une seule carte pour combiner vélo, métro, bus et tramway ! ",
+            "text": "<p>Grâce à la carte Transpass, activez votre abonnement « le vélo » aux autres transports en commun. Avec cette carte «sans contact», passer du vélo au bus ou au tramway devient plus facile et plus pratique. Découvrez tous les avantages de la carte Transpass, proposée par la Communauté urbaine Marseille Provence Métropole, avec « le vélo » !</p>"
+          },{
+            "img": "",
+            "title": "Simplifiez vos démarches ! ",
+            "text": "<p>En choisissant l’abonnement en ligne par carte bancaire, vous bénéficiez du réabonnement automatique pour l’année suivante. Vous pourrez ainsi continuer à utiliser \"le vélo\" sans interruption.</p>"
+          },{
+            "img": "",
+            "title": "Marseille, capitale européenne de la culture 2013 ",
+            "text": "<p>Marseille a été élue capitale européenne de la culture pour l’année 2013. Ce sont ainsi des centaines d’événements, de spectacles, d’animations, de concerts et d’expositions qui sont programmées cette année.</p>"
+          },{
+            "img": "",
+            "title": "Une nouvelle application mobile pour des déplacements encore plus faciles",
+            "text": "<p>Plus de souplesse, de clarté et de simplicité, c’est ce que vous offrent les nouvelles fonctionnalités de l’application AllBikesNow, un service proposé par JCDecaux, disponible gratuitement en téléchargement sur l’App store et Google Play.</p>"
+          },{
+            "img": "",
+            "title": "La semaine du développement durable 2013 à Marseille ",
+            "text": "<p>Marseille se met à l’heure du développement durable ! La semaine est marquée par des rendez-vous d’information, de sensibilisation au tri, à l’électricité et des animations sur terre et sur l’eau ! Voici le programme des manifestations accessibles à vélo.</p>"
+          }
+        ]
+      }
+    },
+    "securite": {
+      "securite": {
+        "title": "Sécurité routière",
+        "text": "Respectez ces quelques conseils de sécurité pour mieux profiter de votre vélo.",
+        "content": [
+          {
+            "img": "",
+            "title": "Conseils de sécurité ",
+            "text": "En ville, les cyclistes sont des usagers de la route au même titre que les automobilistes, les motards et les piétons. Suivre les règles de bonne conduite du cycliste, c’est se protéger et protéger les autres !"
+          }
+        ]
+      },
+      "confort": {
+        "title": "Votre confort",
+        "text": "Les cyclistes, comme les automobilistes, doivent respecter le code de la route.",
+        "content": [
+          {
+            "img": "",
+            "title": "Consignes de sécurité ",
+            "text": "<p>Avant de partir préparez votre trajet pour rouler en toute tranquillité. Pensez à vous équiper la nuit et vérifiez l'état de votre vélo. </p>"
           }
         ]
       }

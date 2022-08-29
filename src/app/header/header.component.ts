@@ -1,3 +1,4 @@
+import { PagefeedService } from './../services/pagefeed.service'
 import { fromEvent, Observable, Subscription } from 'rxjs'
 import { Component, OnInit, ViewChild, ElementRef, HostListener, OnDestroy, EventEmitter } from '@angular/core'
 
@@ -13,6 +14,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private resizeObservable$: Observable<Event>
   private resizeSubscription$: Subscription
 
+  setPath(path: string) {
+    console.log('Section', path)
+    this.page.section = path
+  }
   // Resize listener
   onResize(event) {
     this.innerWidth = event.target.innerWidth
@@ -46,7 +51,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor() { }
+  constructor(private page: PagefeedService) { }
 
   ngOnInit(): void {
     this.resizeObservable$ = fromEvent(window, 'resize')

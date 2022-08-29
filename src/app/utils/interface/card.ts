@@ -5,7 +5,7 @@ export interface Card {
 }
 
 export interface CardsData {
-  cards: [
-    {comment: Array<Object>}
+  sections: [
+    {comment_ca_va: Array<Object>}
   ]
 }
