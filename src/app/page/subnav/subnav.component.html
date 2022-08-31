@@ -1,4 +1,7 @@
 <div class="container">
-
-  <div>aaaa</div>
+  <ul>
+    <li *ngFor="let s of subSections; let i = index" [class.active]="i == 0"  (click)="setSub(s.link, $event)"  #nav>
+      {{s.title}}
+    </li>
+  </ul>
 </div>

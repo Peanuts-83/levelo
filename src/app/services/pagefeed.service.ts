@@ -14,18 +14,12 @@ export class PagefeedService {
   private subscription: Subscription
   data$ = new BehaviorSubject(null)
   pageData$ = new BehaviorSubject(null)
-  section
-  sub
-  subSections
+  section: string
+  sub$ = new BehaviorSubject(null)
+  subSections$ = new BehaviorSubject(null)
 
   constructor(private http: HttpClient, private router: Router) {
     this.section = window.location.href.split('/')[window.location.href.split('/').length - 1]
-
-    // this.subscription = this.http.get('../../assets/data/cards.json').subscribe({
-    //   next: (res: any) => {
-    //     this.data$.next(res.sections)
-    //   }
-    // })
   }
 
 
