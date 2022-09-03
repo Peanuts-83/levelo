@@ -47,6 +47,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     })
   }
 
+  // TODO: zoom on search 
   // Zoom function for map programatical navigation on search result
   zoom = (marker: L.CircleMarker): void => {
     marker.openPopup()
