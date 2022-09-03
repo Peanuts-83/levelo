@@ -1,6 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 import * as L from 'leaflet'
 
+/**
+ * MAP INIT WITH Leaflet
+ * mapLayer + tileLayer
+ * @arg: coords[lat<number>, lng<number>]
+ * @arg: zoom<number>
+ * @return L.MAP
+ *
+ * options :
+ *  center <latlng>
+ *  zoom <1 to 18>
+ *  maxZoom/minZoom
+ *  attributions ©
+ */
 @Injectable({
   providedIn: 'root'
 })

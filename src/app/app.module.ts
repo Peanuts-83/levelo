@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { PubComponent } from './map/pub/pub.component';
+import { PubComponent } from './header/pub/pub.component';
 import { CardComponent } from './page/card/card.component';
 import { PageComponent } from './page/page.component';
 import { SubnavComponent } from './page/subnav/subnav.component';

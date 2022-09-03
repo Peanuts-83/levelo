@@ -34,19 +34,17 @@ export class SubnavComponent implements OnInit, OnDestroy {
     this.routerSubscription = this.pageService.sub$.subscribe({
       next: x => {
         if (!x) return
-        console.log('sub$:', x)
         this.sub = x
-        console.log('sub', this.sub)
       }
     })
     this.routerSubscription.add(
       this.pageService.subSections$.subscribe(res => {
         if (!res) return
         this.subSections = res
+        this.sub = this.subSections[0].link
         if (!this.sub) {
-          this.sub = this.subSections[0].link
         }
-        console.log('SECTION', this.section, this.sub, this.subSections)
+        // console.log('SECTION', this.section, this.sub, this.subSections)
       })
     )
   }

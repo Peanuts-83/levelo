@@ -1,17 +1,16 @@
-import { filter } from 'rxjs/operators'
-import { Card } from '../utils/interface/card'
 import { HttpClient } from '@angular/common/http'
 import { BehaviorSubject, Subscription } from 'rxjs'
-import { Injectable, OnDestroy, OnInit } from '@angular/core'
-import { CardsData } from '../utils/interface/card'
-import { NavigationEnd, Router, NavigationStart } from '@angular/router'
+import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
 
-
+/**
+ * Regular page builder from JSON (except Map page)
+ * Navigation manager with section & subsections
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class PagefeedService {
-  private subscription: Subscription
   data$ = new BehaviorSubject(null)
   pageData$ = new BehaviorSubject(null)
   section: string

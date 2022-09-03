@@ -2,7 +2,9 @@ import { PagefeedService } from './../services/pagefeed.service'
 import { fromEvent, Observable, Subscription } from 'rxjs'
 import { Component, OnInit, ViewChild, ElementRef, HostListener, OnDestroy, EventEmitter } from '@angular/core'
 
-
+/**
+ * Header component including main NAV
+ */
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,7 +17,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private resizeSubscription$: Subscription
 
   setPath(path: string) {
-    console.log('Section', path)
     this.page.section = path
   }
   // Resize listener
@@ -34,7 +35,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   // Show/Hide menu
   displayMenu(show: boolean) {
-    // console.log('display()')
     if (this.innerWidth >= 768) return
     if (show) {
       this.menu.nativeElement.style.display = 'flex'

@@ -3,17 +3,23 @@ import { Available, Station } from './../utils/interface/data_stations'
 import { AvaibilityService } from './avaibility.service'
 import { PopupService } from './popup.service'
 import { HttpClient } from '@angular/common/http'
-import { Injectable, OnDestroy, OnInit } from '@angular/core'
+import { Injectable, OnDestroy } from '@angular/core'
 import * as L from 'leaflet'
 import { Stations, StationsAvailable } from '../utils/interface/data_stations'
 import { BehaviorSubject, Subscription } from 'rxjs'
 
+/**
+ * STATIONS builder from public API
+ * Adds station marker layers to MAP
+ *
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class StationService implements OnDestroy {
-  private sub1$: Subscription
-  private sub2$: Subscription
+  private stationsSubscription: Subscription
+  private availableSubscription: Subscription
+  private maptypeSubscription: Subscription
   private mapType: string
   private markerParam = {
     radius: 0,
@@ -24,12 +30,18 @@ export class StationService implements OnDestroy {
   availableList: Available[]
   markerLayers: L.CircleMarker[] = []
 
+  // Stations factory
   makeStations(map: L.Map): void {
-    this.sub1$ = this.http.get('https://transport.data.gouv.fr/gbfs/marseille/station_information.json').subscribe({
+    // console.log('Marker Layers START:', map, this.markerLayers.length)
+    if (map === null) return
+    
+    this.stationsSubscription = this.http.get('https://transport.data.gouv.fr/gbfs/marseille/station_information.json').subscribe({
       next: (res: Stations) => {
         const bikeNum = res.data.stations.map(x => x.capacity)
         const maxBikeNum = Math.max(...bikeNum)
         this.stations$.next(res.data.stations)
+        console.log('Station$ data:', res.data.stations);
+
 
 
         // Make marker
@@ -77,6 +89,9 @@ export class StationService implements OnDestroy {
         for (let layer of this.markerLayers) {
           layer.addTo(map)
         }
+
+        console.log('Marker Layers END:', this.markerLayers, this.markerLayers.length)
+
       },
       error: (err) => { console.error(err) },
       complete: () => { console.log('Station Observable complete') }
@@ -85,6 +100,7 @@ export class StationService implements OnDestroy {
 
   // Delete markers on change mapType
   delStations(map: L.Map) {
+    if (!map) return
     for (let layer of this.markerLayers) {
       map.removeLayer(layer)
     }
@@ -96,8 +112,8 @@ export class StationService implements OnDestroy {
     private popupService: PopupService,
     private avaibilityService: AvaibilityService,
     private mapTypeService: MapTypeService) {
-    this.mapTypeService.mapType.subscribe(x => this.mapType = x)
-    this.sub2$ = this.avaibilityService.makeAvailable()
+    this.maptypeSubscription = this.mapTypeService.mapType.subscribe(x => this.mapType = x)
+    this.availableSubscription = this.avaibilityService.makeAvailable()
       .subscribe({
         next: (res: StationsAvailable) => this.availableList = res.data.stations,
         error: (err) => console.error(err),
@@ -106,8 +122,9 @@ export class StationService implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub1$.unsubscribe()
-    this.sub2$.unsubscribe()
+    this.maptypeSubscription.unsubscribe()
+    this.stationsSubscription.unsubscribe()
+    this.availableSubscription.unsubscribe()
   }
 
 }

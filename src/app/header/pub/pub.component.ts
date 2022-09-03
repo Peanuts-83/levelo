@@ -17,9 +17,6 @@ export class PubComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.pubs = [this.pub1, this.pub2, this.pub3, this.pub4, this.pub5]
-    // for (let pub of this.pubs) {
-    //   pub.nativeElement.style.display = 'none'
-    // }
     let count = 0
     setInterval(() => {
       this.pubs[count].nativeElement.style.display = 'block'
