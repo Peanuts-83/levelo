@@ -17,7 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private resizeSubscription$: Subscription
 
   setPath(path: string) {
-    this.page.section = path
+    console.log('PageSection:', path)
+    this.pageService.section = path
   }
   // Resize listener
   onResize(event) {
@@ -51,7 +52,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private page: PagefeedService) { }
+  constructor(private pageService: PagefeedService) { }
 
   ngOnInit(): void {
     this.resizeObservable$ = fromEvent(window, 'resize')

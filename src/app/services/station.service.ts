@@ -29,18 +29,19 @@ export class StationService implements OnDestroy {
   stations$: BehaviorSubject<Station[]> = new BehaviorSubject([])
   availableList: Available[]
   markerLayers: L.CircleMarker[] = []
+  popupLayers: L.Popup[] = []
 
   // Stations factory
   makeStations(map: L.Map): void {
     // console.log('Marker Layers START:', map, this.markerLayers.length)
     if (map === null) return
-    
+
     this.stationsSubscription = this.http.get('https://transport.data.gouv.fr/gbfs/marseille/station_information.json').subscribe({
       next: (res: Stations) => {
         const bikeNum = res.data.stations.map(x => x.capacity)
         const maxBikeNum = Math.max(...bikeNum)
         this.stations$.next(res.data.stations)
-        console.log('Station$ data:', res.data.stations);
+        console.log('Station$ data:', res.data.stations)
 
 
 
@@ -72,9 +73,9 @@ export class StationService implements OnDestroy {
           }
           markerParamMaker()
 
-          const lon = s.lon
+          const lng = s.lon
           const lat = s.lat
-          const marker = L.circleMarker([lat, lon], {
+          const marker = L.circleMarker([lat, lng], {
             radius: 20 * this.markerParam.radius,
             fillColor: this.markerParam.fillcolor,
             color: this.markerParam.color,
@@ -82,7 +83,12 @@ export class StationService implements OnDestroy {
           })
 
           // Make popup
-          marker.bindPopup(this.popupService.makePopup(s, a))
+          const popup = L.popup({
+            closeButton: false
+          })
+            .setLatLng([lat, lng])
+            .setContent(this.popupService.makePopup(s, a))
+          marker.bindPopup(popup)
           this.markerLayers.push(marker)
         }
         // Add marker to map

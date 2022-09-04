@@ -26,6 +26,11 @@
   .leaflet-control-attribution {
     margin: 20px !important;
   }
+
+  .leaflet-popup-close-button {
+    display: none;
+    color: red;
+  }
 }
 
 
