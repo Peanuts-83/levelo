@@ -1,7 +1,8 @@
 @import '../../variables';
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   min-height: 100%;
   align-self: flex-start;
   padding: 50px;
@@ -13,8 +14,4 @@ h1 {
   font-size: 1.8rem;
   font-weight: bold;
   color: $primaryDark;
-}
-
-.subnav {
-  width: 50%;
 }

@@ -5,7 +5,7 @@
   <div class="container_logo_nav">
     <div class="logo">
       <div class="velo">
-        <a href="./">
+        <a routerLink="/map" (click)="setPath('map')">
           le<span>vélo</span>
         </a>
       </div>
@@ -18,9 +18,10 @@
     <nav>
       <div class="menu">
         <div class="burger">
-          <mat-icon (mouseover)="displayMenu(true)">menu</mat-icon>
+          <mat-icon *ngIf="!touchScreen" (mouseover)="displayMenu()">menu</mat-icon>
+          <mat-icon *ngIf="touchScreen" (click)="displayMenu()">menu</mat-icon>
         </div>
-        <ul #menu (mouseleave)="displayMenu(false)">
+        <ul #menu (mouseleave)="displayMenu()">
           <li><a routerLink="/comment_ca_marche" (click)="setPath('comment_ca_marche')" routerLinkActive="active">Comment ça marche</a></li>
           <li><a routerLink="/tickets" (click)="setPath('tickets')" routerLinkActive="active">Abonnement & tickets</a></li>
           <li><a routerLink="/map" (click)="setPath('map')" routerLinkActive="active">Les stations</a></li>

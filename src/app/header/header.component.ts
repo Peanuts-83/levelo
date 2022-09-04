@@ -12,13 +12,19 @@ import { Component, OnInit, ViewChild, ElementRef, HostListener, OnDestroy, Even
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @ViewChild('menu') menu: ElementRef
-  innerWidth: number = 768
+  innerWidth: number
+  touchScreen: boolean = false
+  show: boolean = false
   private resizeObservable$: Observable<Event>
   private resizeSubscription$: Subscription
 
   setPath(path: string) {
     console.log('PageSection:', path)
     this.pageService.section = path
+    if (this.touchScreen && this.show) {
+      console.log('TRUE', this.touchScreen);
+      this.displayMenu()
+    }
   }
   // Resize listener
   onResize(event) {
@@ -35,9 +41,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   // Show/Hide menu
-  displayMenu(show: boolean) {
+  displayMenu() {
     if (this.innerWidth >= 768) return
-    if (show) {
+    this.show = !this.show
+    if (this.show) {
       this.menu.nativeElement.style.display = 'flex'
       setTimeout(() => {
         this.menu.nativeElement.style.opacity = 1
@@ -59,6 +66,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.resizeSubscription$ = this.resizeObservable$.subscribe(e => {
       this.onResize(e)
     })
+    this.touchScreen = (navigator.maxTouchPoints > 0)
   }
 
   ngOnDestroy(): void {

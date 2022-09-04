@@ -37,7 +37,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   // Map Init requires div<"#map"> in DOM
   ngAfterViewInit(): void {
-    this.map = this.mapService.initMap([43.2928, 5.4334])
+    this.map = this.mapService.initMap([43.29, 5.39])
     this.mapTypeService.mapType.subscribe(x => {
       if (this.mapType !== x || !this.mapType) {
         this.mapType = x
