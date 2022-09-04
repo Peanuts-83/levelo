@@ -2,7 +2,7 @@
 
 .map-container {
   width: 100%;
-  height: calc(100vh - 600px);
+  height: calc(100vh - 750px);
 
   * {
     transition: all .3s ease-in-out;
@@ -31,7 +31,7 @@
 
 @media screen and (max-width: 1024px) {
   .map-container {
-    height: calc(100vh - 550px);
+    height: calc(100vh - 700px);
 
     .legend {
       margin: 10px 40px;
@@ -42,7 +42,7 @@
 
 @media screen and (max-width: 768px) {
   .map-container {
-    height: calc(100vh - 450px);
+    height: calc(100vh - 550px);
 
     .legend {
       margin: 10px 20px;
@@ -53,10 +53,10 @@
 
 @media screen and (max-width: 500px) {
   .map-container {
-    height: calc(100vh - 250px);
+    height: 80vh;
 
     .legend {
-      bottom: 90px;
+      bottom: 0;
       margin: 0;
     }
   }

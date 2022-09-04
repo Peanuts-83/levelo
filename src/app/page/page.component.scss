@@ -1,9 +1,10 @@
 @import '../../variables';
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  margin: 50px;
+  display: flex;
+  min-height: 100%;
+  align-self: flex-start;
+  padding: 50px;
   color: $primaryDark;
   font-size: 1rem;
 }
@@ -12,4 +13,8 @@ h1 {
   font-size: 1.8rem;
   font-weight: bold;
   color: $primaryDark;
+}
+
+.subnav {
+  width: 50%;
 }
