@@ -37,7 +37,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   // Map Init requires div<"#map"> in DOM
   ngAfterViewInit(): void {
-    this.map = this.mapService.initMap([43.2928, 5.4334], 13)
+    this.map = this.mapService.initMap([43.2928, 5.4334])
     this.mapTypeService.mapType.subscribe(x => {
       if (this.mapType !== x || !this.mapType) {
         this.mapType = x
@@ -47,10 +47,11 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     })
   }
 
-  // TODO: zoom on search 
+  // TODO: zoom on search
   // Zoom function for map programatical navigation on search result
   zoom = (marker: L.CircleMarker): void => {
     marker.openPopup()
+    this.mapService.zoom = 15
     this.map.zoomIn(15)
     this.map.panTo(marker.getLatLng())
   }

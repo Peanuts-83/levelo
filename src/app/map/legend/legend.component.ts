@@ -70,6 +70,8 @@ export class LegendComponent implements OnInit, OnDestroy {
       return null
     })
 
+    console.log('Result:', result);
+
     if (result.length < 1) {
       this.alertResult(true)
     } else {

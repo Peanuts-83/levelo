@@ -19,11 +19,12 @@ import * as L from 'leaflet'
 })
 export class MapService {
   map: L.Map
+  zoom: number = 13
 
-  initMap(coords: L.LatLngExpression, zoom: number): L.Map {
+  initMap(coords: L.LatLngExpression): L.Map {
     this.map = L.map('map', {
       center: coords,
-      zoom: zoom
+      zoom: this.zoom
     })
 
     const tiles = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
