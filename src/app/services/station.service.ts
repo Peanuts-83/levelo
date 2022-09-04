@@ -29,7 +29,6 @@ export class StationService implements OnDestroy {
   stations$: BehaviorSubject<Station[]> = new BehaviorSubject([])
   availableList: Available[]
   markerLayers: L.CircleMarker[] = []
-  popupLayers: L.Popup[] = []
 
   // Stations factory
   makeStations(map: L.Map): void {
@@ -44,29 +43,27 @@ export class StationService implements OnDestroy {
         this.stations$.next(res.data.stations)
         console.log('Station$ data:', res.data.stations)
 
-
-
         // Make marker
         for (let s of res.data.stations) {
           // Get availability data
           const id = s.station_id
           const a = this.availableList.filter((data: Available) => data.station_id === id)[0]
 
-          // MarkerParams
+          // MarkerParams size & colors
           const markerParamMaker = () => {
             switch (this.mapType) {
               case 'docks':
-                this.markerParam.radius = a.num_docks_available / maxBikeNum * 2 +.2
+                this.markerParam.radius = a.num_docks_available / maxBikeNum * 1.3 +.2
                 this.markerParam.fillcolor = '#D4E157'
                 this.markerParam.color = '#7CB342'
                 break
               case 'bikes':
-                this.markerParam.radius = a.num_bikes_available / maxBikeNum * 2 +.2
+                this.markerParam.radius = a.num_bikes_available / maxBikeNum * 1.3 +.2
                 this.markerParam.fillcolor = '#FFC107'
                 this.markerParam.color = '#F57F17'
                 break
               default:
-                this.markerParam.radius = s.capacity / maxBikeNum * 2 +.2
+                this.markerParam.radius = s.capacity / maxBikeNum * 1.3 +.2
                 this.markerParam.fillcolor = '#1E88E5'
                 this.markerParam.color = '#1565C0'
                 break
@@ -74,6 +71,7 @@ export class StationService implements OnDestroy {
           }
           markerParamMaker()
 
+          // Circle marker build
           const lng = s.lon
           const lat = s.lat
           const marker = L.circleMarker([lat, lng], {
@@ -83,7 +81,7 @@ export class StationService implements OnDestroy {
             fillOpacity: .3,
           })
 
-          // Make popup
+          // Popup build
           const popup = L.popup({
             closeButton: false
           })
@@ -92,13 +90,10 @@ export class StationService implements OnDestroy {
           marker.bindPopup(popup)
           this.markerLayers.push(marker)
         }
-        // Add marker to map
+        // Add marker (with popup) to map
         for (let layer of this.markerLayers) {
           layer.addTo(map)
         }
-
-        console.log('Marker Layers END:', this.markerLayers, this.markerLayers.length)
-
       },
       error: (err) => { console.error(err) },
       complete: () => { console.log('Station Observable complete') }

@@ -8,7 +8,7 @@ import { MatRadioChange } from '@angular/material/radio'
 import * as L from 'leaflet'
 
 /**
- * Filter & Search component
+ * Filter & Search STATION component
  *
  */
 @Component({
@@ -28,9 +28,8 @@ export class LegendComponent implements OnInit, OnDestroy {
   private oldSearch = ''
   search: string = '-'
 
-
-  // SEARCH STATION - Input //
-  // Stations' name builder
+  // STATIONS Actions //
+  // Stations' name list factory
   makeNamesList() {
     if (this.stations) {
       this.namesList = this.stations.map(station => {
@@ -70,8 +69,6 @@ export class LegendComponent implements OnInit, OnDestroy {
       return null
     })
 
-    console.log('Result:', result);
-
     if (result.length < 1) {
       this.alertResult(true)
     } else {
@@ -86,7 +83,7 @@ export class LegendComponent implements OnInit, OnDestroy {
   }
 
 
-  // MAP actions //
+  // MAP Actions //
   // Map filter choice with radio btns
   changeType(e: MatRadioChange) {
     console.log('Map Type filter:', e.value)
@@ -129,7 +126,6 @@ export class LegendComponent implements OnInit, OnDestroy {
         complete: () => console.log("searchSubscription complete")
       })
   }
-
 
   ngOnDestroy(): void {
     this.searchSubscription.unsubscribe()

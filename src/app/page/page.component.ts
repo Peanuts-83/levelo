@@ -5,6 +5,9 @@ import { Subscription, BehaviorSubject } from 'rxjs'
 import { Router, NavigationStart } from '@angular/router'
 import { Component, OnInit, Output, ViewChild, OnDestroy } from '@angular/core'
 
+/** Text page component
+ *  Data from JSON file 'assets/data/cards.json'
+ */
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
@@ -29,9 +32,10 @@ export class PageComponent implements OnInit, OnDestroy {
     this.section = this.pageService.section
 
     // Data subscription
-    this.http.get('../../assets/data/cards.json').subscribe((res: any) => {
+    this.http.get('./assets/data/cards.json').subscribe((res: any) => {
       if (res) {
         this.data = res = res.sections
+        
         // Set subSection {link: str, title: str} & initial sub
         this.subSections = Object.keys(res[this.section]).map(s => ({ link: s, title: '' }))
         this.sub = this.subSections[0].link

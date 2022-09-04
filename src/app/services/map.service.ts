@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import * as L from 'leaflet'
 
 /**
- * MAP INIT WITH Leaflet
+ * MAP INIT with Leaflet
  * mapLayer + tileLayer
  * @arg: coords[lat<number>, lng<number>]
  * @arg: zoom<number>

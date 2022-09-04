@@ -4,7 +4,10 @@ import { StationService } from './../services/station.service'
 import { Component, AfterViewInit, ViewChild, OnDestroy } from '@angular/core'
 import * as L from 'leaflet'
 
-// Map icons UI //
+/**
+ * Circle markers factory for MAP
+ * 
+ */
 const iconRetinaUrl = 'assets/marker-icon-2x.png'
 const iconUrl = 'assets/marker-icon.png'
 const shadowUrl = 'assets/marker-shadow.png'
@@ -47,7 +50,6 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     })
   }
 
-  // TODO: zoom on search
   // Zoom function for map programatical navigation on search result
   zoom = (marker: L.CircleMarker): void => {
     marker.openPopup()

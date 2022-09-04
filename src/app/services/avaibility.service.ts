@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 
 /**
- * get availability by station from public API
+ * Get availability by station from public API
  *
  * data: {
  *  stations: [{

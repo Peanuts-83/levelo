@@ -2,6 +2,10 @@ import { BehaviorSubject, Subscription } from 'rxjs'
 import { PagefeedService } from './../../services/pagefeed.service'
 import { Component, Input, OnInit, ViewChild, AfterViewInit, ElementRef, OnDestroy, ViewChildren, QueryList } from '@angular/core'
 
+/**
+ * Subnav component in left part of page component
+ *
+ */
 @Component({
   selector: 'app-subnav',
   templateUrl: './subnav.component.html',
@@ -42,9 +46,6 @@ export class SubnavComponent implements OnInit, OnDestroy {
         if (!res) return
         this.subSections = res
         this.sub = this.subSections[0].link
-        if (!this.sub) {
-        }
-        // console.log('SECTION', this.section, this.sub, this.subSections)
       })
     )
   }

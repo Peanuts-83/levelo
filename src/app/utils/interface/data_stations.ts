@@ -14,7 +14,6 @@ export interface Station {
   station_id: string
 }
 
-
 export interface StationsAvailable {
   data: {
     stations: Available[]

@@ -18,14 +18,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private resizeObservable$: Observable<Event>
   private resizeSubscription$: Subscription
 
+  // Main nav Section & touchScreen detection for burger nav
   setPath(path: string) {
-    console.log('PageSection:', path)
     this.pageService.section = path
     if (this.touchScreen && this.show) {
-      console.log('TRUE', this.touchScreen);
       this.displayMenu()
     }
   }
+
   // Resize listener
   onResize(event) {
     this.innerWidth = event.target.innerWidth
@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   // Show/Hide menu
   displayMenu() {
-    if (this.innerWidth >= 768) return
+    if (this.innerWidth >= 768 || ! this.innerWidth) return
     this.show = !this.show
     if (this.show) {
       this.menu.nativeElement.style.display = 'flex'
@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private pageService: PagefeedService) { }
+  constructor(private pageService: PagefeedService) {}
 
   ngOnInit(): void {
     this.resizeObservable$ = fromEvent(window, 'resize')
