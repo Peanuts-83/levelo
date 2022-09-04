@@ -13,7 +13,7 @@ import { Component, Input, OnInit, ViewChild, AfterViewInit, ElementRef, OnDestr
 })
 export class SubnavComponent implements OnInit, OnDestroy {
   routerSubscription: Subscription
-  section: string
+  section: string = 'map'
   sub: string
   subSections: { link: string, title: string }[]
 
