@@ -10,7 +10,8 @@
     </mat-radio-group>
     <div class="search_container">
       <input #input mat-input formControlName="search" type="text" [matAutocomplete]="auto" placeholder="Recherchez une station">
-      <mat-autocomplete #auto (optionSelected)="targetStation()">
+      <mat-autocomplete #auto>
+      <!-- <mat-autocomplete #auto (optionSelected)="targetStation()"> -->
         <mat-option *ngFor="let option of filteredNames " [value]="option">
           {{ option}}
         </mat-option>
