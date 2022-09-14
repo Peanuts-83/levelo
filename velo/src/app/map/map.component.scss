@@ -1,0 +1,68 @@
+@import '../../variables';
+
+.map-container {
+  width: 100%;
+  height: calc(100vh - 750px);
+
+  * {
+    transition: all .3s ease-in-out;
+  }
+
+  .legend {
+    position: absolute;
+    right: 0;
+    margin: 10px 50px;
+    z-index: 1000;
+  }
+}
+
+#map {
+  height: 100%;
+
+  .leaflet-bar {
+    background-color: $greyDark;
+  }
+
+  .leaflet-control-attribution {
+    margin: 20px !important;
+  }
+
+  .leaflet-popup-close-button {
+    display: none;
+    color: red;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .map-container {
+    height: calc(100vh - 700px);
+
+    .legend {
+      margin: 10px 40px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .map-container {
+    height: calc(100vh - 550px);
+
+    .legend {
+      margin: 10px 10px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .map-container {
+    height: 80vh;
+
+    .legend {
+      bottom: 0;
+      margin: 0;
+    }
+  }
+}

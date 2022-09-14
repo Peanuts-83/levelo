@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="pub">
+    <app-pub></app-pub>
+  </div>
+  <div class="container_logo_nav">
+    <div class="logo">
+      <div class="velo">
+        <a routerLink="/map" (click)="setPath('map')">
+          le<span>vélo</span>
+        </a>
+      </div>
+      <div class="marseille">
+        <a href="https://www.ampmetropole.fr/" target="_blank">
+          <img src="assets/metropole.png" alt="metropole logo">
+        </a>
+      </div>
+    </div>
+    <nav>
+      <div class="menu">
+        <div class="burger">
+          <mat-icon *ngIf="!touchScreen" (mouseover)="displayMenu()">menu</mat-icon>
+          <mat-icon *ngIf="touchScreen" (click)="displayMenu()">menu</mat-icon>
+        </div>
+        <ul #menu (mouseleave)="displayMenu()">
+          <li><a routerLink="/comment_ca_marche" (click)="setPath('comment_ca_marche')" routerLinkActive="active">Comment ça marche</a></li>
+          <li><a routerLink="/tickets" (click)="setPath('tickets')" routerLinkActive="active">Abonnement & tickets</a></li>
+          <li><a routerLink="/map" (click)="setPath('map')" routerLinkActive="active">Les stations</a></li>
+          <li><a routerLink="/magazine" (click)="setPath('magazine')" routerLinkActive="active">Magazine</a></li>
+          <li><a routerLink="/securite" (click)="setPath('securite')" routerLinkActive="active">Pour votre sécurité</a></li>
+        </ul>
+      </div>
+      <div class="lang_search">
+        <div class="account"><img src="assets/user.png" alt="compte utilisateur"></div>
+        <div class="lang">
+          <img src="assets/uk.jpg" alt="english language">
+        </div>
+        <form class="search">
+          <input type="text" name="search" id="search" placeholder="Recherchez dans le site">
+        </form>
+      </div>
+    </nav>
+  </div>
+</div>

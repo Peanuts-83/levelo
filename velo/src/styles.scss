@@ -1,0 +1,93 @@
+@import './variables';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all .3s ease-in-out;
+}
+
+.main {
+  transition: all .3s ease-in-out;
+  position: relative;
+  display: grid;
+  grid-template-rows: 500px auto 1fr;
+  min-height: 100%;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: rgb(200, 203, 218);
+}
+
+.header {
+  position: relative;
+}
+
+.footer {
+  height: fit-content;
+}
+
+// FONTS
+mat-icon {
+  margin: 5px;
+}
+
+// UTILS
+
+.p-10 {
+  padding: 10px;
+}
+
+a {
+  color: $primaryDark;
+  text-decoration: none;
+
+  &:visited {
+    color: $primaryDark;
+  }
+
+  &:active,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+ul {
+  list-style: circle;
+  padding-left: 20px;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .main {
+    grid-template-rows: 450px auto 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    grid-template-rows: 250px auto 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    max-height: 100vh;
+    grid-template-rows: 150px auto 1fr;
+  }
+}

@@ -1,0 +1,25 @@
+<div class="legend_container">
+  <em>
+    <mat-icon>directions_bike</mat-icon> Visualisez les stations par
+  </em>
+  <form class="form" [formGroup]="searchForm" (ngSubmit)="targetStation()">
+    <mat-radio-group formControlName="radio" class="col p-10" (change)="changeType($event)">
+      <mat-radio-button color="primary" labelPosition="after" value="size">Nombre total de places </mat-radio-button>
+      <mat-radio-button color="accent" labelPosition="after" value="docks">Nombre de places vides </mat-radio-button>
+      <mat-radio-button color="warn" labelPosition="after" value="bikes">Nombre de vélos disponibles </mat-radio-button>
+    </mat-radio-group>
+    <div class="search_container">
+      <input #input mat-input formControlName="search" type="text" [matAutocomplete]="auto" placeholder="Recherchez une station">
+      <mat-autocomplete #auto>
+      <!-- <mat-autocomplete #auto (optionSelected)="targetStation()"> -->
+        <mat-option *ngFor="let option of filteredNames " [value]="option">
+          {{ option}}
+        </mat-option>
+      </mat-autocomplete>
+      <button mat-raised-button color="primary" title="search" class="btn_go" type="submit">Go !</button>
+    </div>
+    <p class="error" #error>Station inconnue</p>
+  </form>
+  <!-- <pre>{{searchForm.value | json}}</pre>
+  <pre>{{search}}</pre> -->
+</div>

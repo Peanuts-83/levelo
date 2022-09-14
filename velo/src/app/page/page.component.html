@@ -1,0 +1,8 @@
+<div class="container">
+  <app-subnav class="subnav"></app-subnav>
+  <div class="content">
+    <h1>{{pageData.titleSection}}</h1>
+    <strong>{{pageData.textSection}}</strong>
+    <app-card *ngFor="let card of pageData.cards" [card]="card"></app-card>
+  </div>
+</div>

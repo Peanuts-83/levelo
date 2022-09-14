@@ -1,0 +1,39 @@
+@import '../../../variables';
+
+.container {
+  width: 100%;
+  background-color: red;
+}
+
+
+ul {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  background-color: $primary;
+
+  li {
+    display: flex;
+    background-color: white;
+    margin-bottom: 1px;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $warn;
+    }
+  }
+
+  .active {
+    background-color: $warn;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  li {
+    justify-content: center;
+  }
+}
